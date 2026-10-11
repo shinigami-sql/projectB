@@ -15,12 +15,16 @@ SaferProducts.gov publishes thousands of public reports about products that inju
 - *(Planned)* Transforms it with dbt models, from raw tables to clean, analysis-ready ones
 - *(Planned)* Runs on a schedule with an orchestrator
 
-## Starter insights
+## Insights
+
+For starters:
 
 - Brands ranked by number of complaints
 - Most recent complaint per brand
 - Manufacturer replies vs. total complaints
 - Complaints grouped by product category
+
+...and more to come.
 
 ## About the data
 

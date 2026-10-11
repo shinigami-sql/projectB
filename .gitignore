@@ -219,5 +219,4 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 safer_products_zipfiles/
-.DS_STORE
 .DS_Store

@@ -18,19 +18,27 @@ SaferProducts.gov publishes thousands of public reports about products that inju
 
 ## How to run
 
-Create a `.env` file in the project root with:
+1. Create the raw schema for SaferProducts on your PostgreSQL database, since PostgreSQL won't create it when the tables are created:
 
-- `CHROME_USER_AGENT`: Chrome's User-Agent string, since the site blocks the default `python-requests` one
-- `SAFERPRODUCTS_BASE_API_URL`: the SaferProducts API base URL
-- `SAFERPRODUCTS_API_KEY`: your free API key
-- `DATABASE_URL`: your PostgreSQL connection string
+   ```sql
+   CREATE SCHEMA IF NOT EXISTS saferproducts_raw;
+   ```
 
-Then run:
+2. Create the raw tables: run the SQL scripts in [`table_schema_scripts/raw`](table_schema_scripts/raw). They create the 8 tables inside `saferproducts_raw` that the load step inserts into.
 
-```bash
-python3 main.py  # macOS/Linux
-python main.py   # Windows
-```
+3. Create a `.env` file in the project root with:
+
+   - `CHROME_USER_AGENT`: Chrome's User-Agent string, since the site blocks the default `python-requests` one
+   - `SAFERPRODUCTS_BASE_API_URL`: the SaferProducts API base URL
+   - `SAFERPRODUCTS_API_KEY`: your free API key
+   - `DATABASE_URL`: your PostgreSQL connection string
+
+4. Run the pipeline:
+
+   ```bash
+   python3 main.py  # macOS/Linux
+   python main.py   # Windows
+   ```
 
 ## Insights
 

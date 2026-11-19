@@ -1,0 +1,10 @@
+
+
+
+
+Switched from the SaferProducts zip export to the SaferProducts API: pulls 8 tables page by page (OData v2 JSON, $skiptoken paging, API key auth, Chrome User-Agent)
+Added transform: drops unused columns, converts decimal ID columns to Int64, renames columns and tables to snake_case
+Added load: truncates and inserts each table into saferproducts_raw on Supabase in one transaction with SQLAlchemy
+Fixed page_count: counts each page after raise_for_status, so the error log names the exact page that failed
+Updated README: now reflects the API pull, transform and load to Supabase, dbt and scheduling still planned
+Updated ABOUT_THE_DATA.md: linked API_SOURCE.md, replaced "this is false" with "wrong info"

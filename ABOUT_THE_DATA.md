@@ -2,6 +2,8 @@
 
 This document explains where the complaint data in this project comes from, how a complaint goes from being filed to being public, and what that means for anyone reading the data.
 
+The project pulls this data from the SaferProducts API, see [API_SOURCE.md](API_SOURCE.md) for how.
+
 ---
 
 ## Who's who
@@ -32,7 +34,7 @@ Read every number in this project as **"what was reported,"** not **"what was pr
 - **2008, Consumer Product Safety Improvement Act (CPSIA):** the law that **required** the CPSC to create a public, searchable database of complaints. Before it, complaints were mostly hidden from the public until a recall happened.
 - **March 11, 2011:** SaferProducts.gov goes live.
 - **August 2011, Public Law 112-28:** a change to the law that added the **15-day rule** (explained below).
-- **16 CFR Part 1102:** the CPSC's official rules for how the database works (the 10-day rule, the "this is false" claims, the fixes). Reportedly never updated for the 2011 change, so it still only mentions day 10.
+- **16 CFR Part 1102:** the CPSC's official rules for how the database works (the 10-day rule, the "wrong info" claims, the fixes). Reportedly never updated for the 2011 change, so it still only mentions day 10.
 
 ---
 
@@ -46,7 +48,7 @@ The complaint is **never posted early**. Even if the manufacturer replies on day
 
 ### The 15-day rule
 
-Set by **law** (Public Law 112-28, 2011), not chosen by the CPSC. It only applies in Scenario 3, when the manufacturer files a "this is false" claim **before day 10**. Then publishing can be held for **up to 5 extra business days**, so up to **day 15**, giving the CPSC more time to decide.
+Set by **law** (Public Law 112-28, 2011), not chosen by the CPSC. It only applies in Scenario 3, when the manufacturer files a "wrong info" claim **before day 10**. Then publishing can be held for **up to 5 extra business days**, so up to **day 15**, giving the CPSC more time to decide.
 
 **In general:** every complaint that isn't deleted is posted **between day 10 and day 15** after it's sent to the manufacturer.
 
@@ -60,7 +62,7 @@ They reply at any point within the 10 days → on **day 10**, the complaint **an
 
 The 10 days pass with no reply → on **day 10**, the complaint goes public alone. They can still respond after day 10, and their response gets added then.
 
-### Scenario 3: the manufacturer claims it's false
+### Scenario 3: the manufacturer claims it has wrong info
 
 The manufacturer tells the CPSC the complaint has **wrong information that matters**. Officially, "matters" means false or misleading information important enough to change a reasonable person's decision about the product, about:
 
@@ -79,7 +81,7 @@ No fixed number of days. But publishing doesn't wait for the decision:
 - If the claim was filed before day 10 and the CPSC decides **between day 10 and day 15** → the decision is applied, and the complaint goes public by **day 15**.
 - If it **hasn't decided** by day 10 (or day 15 if the 15-day rule applies) → the complaint is published as is, and the CPSC keeps investigating with no deadline.
 
-#### If the CPSC agrees it's false
+#### If the CPSC agrees it has wrong info
 
 It picks **one** fix, depending on the situation. The rules say it must prefer **correcting** or **adding info** over deleting.
 
@@ -119,7 +121,7 @@ The complaint is fine → it's published **as is**, with no changes. Never befor
 
 #### If the CPSC hasn't decided yet
 
-It's published anyway, as is, **by day 15 at the latest**. If the CPSC later decides it **was** false, it applies one of the same fixes (correct, add info, remove the wrong part, or delete the whole complaint), within **7 business days** of deciding.
+It's published anyway, as is, **by day 15 at the latest**. If the CPSC later decides it **did** have wrong info, it applies one of the same fixes (correct, add info, remove the wrong part, or delete the whole complaint), within **7 business days** of deciding.
 
 ---
 

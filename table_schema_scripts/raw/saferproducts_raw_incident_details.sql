@@ -1,0 +1,41 @@
+
+-- creates the raw incident_details table: a row number, every API column as text,
+-- and upload_timestamp, which defaults to now(), so it fills itself with the load time on each insert
+
+
+CREATE TABLE saferproducts_raw.incident_details (
+  id PRIMARY KEY,
+  incident_report_number TEXT,
+  incident_report_id TEXT,
+  incident_report_date TEXT,
+  incident_report_publication_date TEXT,
+  source_type_id TEXT,
+  manufacturer_notification_date TEXT,
+  incident_date TEXT,
+  incident_description TEXT,
+  company_comments_expanded TEXT,
+  locale_id TEXT,
+  incident_product_description TEXT,
+  product_category_id TEXT,
+  product_manufacturer_company_id TEXT,
+  product_manufacturer_name TEXT,
+  product_manufactured_date TEXT,
+  product_retail_company_id TEXT,
+  product_retail_company_name TEXT,
+  product_purchased_date TEXT,
+  product_brand_name TEXT,
+  product_model_name TEXT,
+  product_serial_number TEXT,
+  product_upc_code TEXT,
+  user_still_has_product TEXT,
+  product_damaged_before_incident TEXT,
+  product_modified_before_incident TEXT,
+  user_contacted_manufacturer TEXT,
+  answer_explanation TEXT,
+  user_plans_to_contact_manufacturer TEXT,
+  severity_type_id TEXT,
+  relationship_type_id TEXT,
+  victim_gender_id TEXT,
+  victim_age_in_months TEXT,
+  upload_timestamp TIMESTAMPTZ DEFAULT now()
+);

@@ -8,12 +8,29 @@ SaferProducts.gov publishes thousands of public reports about products that inju
 
 ## What it does
 
-- Downloads the full SaferProducts Public Database Export (a zip with all incident reports and recalls)
-- Stores every download with a timestamp, building a history over time, including complaints that later get corrected or deleted
-- Unzips and loads the incident reports for analysis
-- *(Planned)* Loads the raw data into PostgreSQL
-- *(Planned)* Transforms it with dbt models, from raw tables to clean, analysis-ready ones
-- *(Planned)* Runs on a schedule with an orchestrator
+- Pulls 8 tables from the SaferProducts API (OData v2), page by page: `IncidentDetails`, `CompanyDetails`, `SourceTypes`, `SeverityTypes`, `Locales`, `RelationshipTypes`, `Sexes` and `ProductCategories`
+- Cleans each table in Python: drops unused columns, converts decimal ID columns back to whole numbers, and renames columns and tables to snake_case
+- Loads each table into the `saferproducts_raw` schema in PostgreSQL on Supabase, truncating and inserting in a single transaction, so a failed table never stays half loaded
+- Logs every step (rows pulled, pages, columns dropped and converted, rows loaded and any errors) to a timestamped activity log
+- *(Planned)* dbt snapshots of every raw table (SCD Type 2), keeping the history of complaints that get corrected or deleted, since the raw tables are fully replaced on every run
+- *(Planned)* dbt silver and gold models, from raw tables to clean, analysis-ready ones, with data quality tests
+- *(Planned)* Daily schedule with GitHub Actions
+
+## How to run
+
+Create a `.env` file in the project root with:
+
+- `CHROME_USER_AGENT`: Chrome's User-Agent string, since the site blocks the default `python-requests` one
+- `SAFERPRODUCTS_BASE_API_URL`: the SaferProducts API base URL
+- `SAFERPRODUCTS_API_KEY`: your free API key
+- `DATABASE_URL`: your PostgreSQL connection string
+
+Then run:
+
+```bash
+python3 main.py  # macOS/Linux
+python main.py   # Windows
+```
 
 ## Insights
 
@@ -28,4 +45,4 @@ For starters:
 
 ## About the data
 
-For more info, check [ABOUT_THE_DATA.md](ABOUT_THE_DATA.md).
+For more info, check [ABOUT_THE_DATA.md](ABOUT_THE_DATA.md) and [API_SOURCE.md](API_SOURCE.md).

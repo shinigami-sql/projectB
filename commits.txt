@@ -1,4 +1,0 @@
-
-
-
-Removed IncidentReports.csv and safer_products_test_record.json, leftovers from the zip export and API testing, and added commits.txt to .gitignore

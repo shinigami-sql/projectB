@@ -45,4 +45,6 @@ For starters:
 
 ## About the data
 
-For more info, check [ABOUT_THE_DATA.md](ABOUT_THE_DATA.md) and [API_SOURCE.md](API_SOURCE.md).
+For more info, check [ABOUT_THE_DATA.md](docs/ABOUT_THE_DATA.md).
+
+[DATA_DICTIONARY.md](docs/DATA_DICTIONARY.md) will cover every table and column, and will be filled in once all the dbt models are finished.
